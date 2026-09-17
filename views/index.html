@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fast, simple URL shortener.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <title>Linklet | URL Shortener</title>
+</head>
+
+<body>
+    <main class="page">
+        <nav class="nav" aria-label="Main navigation">
+            <a class="logo" href="/" aria-label="Linklet home">
+                <span class="logo-mark">↗</span>
+                <span>linklet</span>
+            </a>
+            <span class="status"><span class="status-dot"></span>Ready to redirect</span>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow"><span></span> Short links, long reach</p>
+                <h1>Make every link <em>lighter.</em></h1>
+                <p class="intro">Turn long, clumsy URLs into clean links that are easy to share, remember, and click.
+                </p>
+            </div>
+
+            <div class="box">
+                <div class="box-top">
+                    <div>
+                        <p class="box-label">Create a short link</p>
+                        <p class="box-hint">Paste your long URL below to get started.</p>
+                    </div>
+                    <span class="sparkle" aria-hidden="true">✦</span>
+                </div>
+                <form action="/links" method="POST">
+                    <label for="url">Long URL</label>
+                    <div class="input-row">
+                        <span class="input-icon" aria-hidden="true">⌁</span>
+                        <input type="url" id="url" name="url" placeholder="https://your-long-url.com/..." required
+                            autocomplete="url">
+                    </div>
+                    <label for="shortUrl">Short URL</label>
+                    <div class="input-row">
+                        <span class="input-icon" aria-hidden="true">↗</span>
+                        <input type="text" id="shortUrl" name="shortUrl" placeholder="my-link" required
+                            autocomplete="off">
+                    </div>
+                    <button class="submit-button" type="submit">Shorten <span aria-hidden="true">→</span></button>
+                </form>
+                <p class="privacy"><span aria-hidden="true">♢</span> Your link is ready in a blink. No account needed.
+                </p>
+            </div>
+        </section>
+
+        <section class="process" aria-label="How it works">
+            <div class="process-line"></div>
+            <article class="step">
+                <span class="step-number">01</span>
+                <div>
+                    <h2>Paste</h2>
+                    <p>Drop in any long URL.</p>
+                </div>
+            </article>
+            <article class="step">
+                <span class="step-number">02</span>
+                <div>
+                    <h2>Shorten</h2>
+                    <p>We trim it down instantly.</p>
+                </div>
+            </article>
+            <article class="step">
+                <span class="step-number">03</span>
+                <div>
+                    <h2>Share</h2>
+                    <p>Send it anywhere you like.</p>
+                </div>
+            </article>
+            <button><a href="/links" id="links">Links ---></a></button>
+        </section>
+
+        <footer class="footer">
+            <span>LINKLET / URL SHORTENER</span>
+            <span>Make less link. Do more.</span>
+        </footer>
+    </main>
+
+    <!-- <script>
+        document.querySelector("form").addEventListener("submit",async(event)=>{
+            const formdata=new FormData();
+            const url=formdata.get("url");
+            const shorturl=formdata.get("shortUrl");
+            try{
+                const response=await fetch("/",{
+                    method:"POST",
+                    headers:{"Content-Type":"application/ json"},
+                    body:JSON.stringify({
+                        url:url,
+                        shorturl:shortUrl})
+                });
+            }
+            catch(error){
+                alert(error.message);
+            }
+        })
+    </script> -->
+</body>
+
+</html>
